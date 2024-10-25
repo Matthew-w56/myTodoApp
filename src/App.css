@@ -1,0 +1,22 @@
+#root {
+	width: 100vw;
+	height: 100vh;
+	background-color: white;
+	font-family: 'Roboto';
+	overflow-x: hidden;
+}
+
+h1.main-title {
+	color: #444;
+	margin-top: 50px;
+}
+
+div.main-content-column {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+div.bottom-spacer {
+	height: 120px;
+}

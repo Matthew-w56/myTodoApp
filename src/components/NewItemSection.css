@@ -1,0 +1,30 @@
+
+input.new-item-text {
+	border: 1px solid #333;
+	border-radius: 5px;
+	width: 40%;
+	height: 40px;
+	font-size: 18px;
+	padding: 3px 25px;
+	margin-top: 25px;
+}
+
+button.new-item-button {
+	background-color: white;
+	border: none;
+	border-radius: 30px; /* Pill shape */
+	font-size: 20px;
+	padding: 12px 40px;
+	margin-top: 7px;
+	margin-bottom: 40px;
+	transition: 0.2s ease-in-out;
+}
+
+button.new-item-button:hover {
+	background-color: rgb(255, 244, 182);
+	font-size: 21px;
+}
+
+button.new-item-button:focus {
+	outline: none;
+}
