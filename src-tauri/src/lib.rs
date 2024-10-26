@@ -3,7 +3,7 @@
 use log::{info, error};
 use tauri::{Manager};
 use std::path::PathBuf;
-use std::process::{Command, Child, Stdio};
+use std::process::{Command, Child};
 use std::sync::Mutex;
 use std::fs::{/*metadata, */copy, create_dir_all};
 
@@ -129,10 +129,6 @@ pub fn run() {
 				const CREATE_NO_WINDOW: u32 = 0x08000000;
 				jar_comm.creation_flags(CREATE_NO_WINDOW);
 			}
-			// Don't use standard in or output (Help make sure no window is created)
-			// jar_comm
-			// 		.stdout(Stdio::null())
-			// 		.stderr(Stdio::null());
 			
 			if let Ok(child) =jar_comm
 					.arg("-jar")

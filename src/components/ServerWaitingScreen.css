@@ -3,6 +3,7 @@ div.waiting-screen-wrapper {
 	width: 60%;
 	margin: 90px auto;
 	margin-top: 140px;
+	background-color: rgb(255, 229, 85);
 	border: 1px solid gray;
 	box-shadow: 1px 2px 3px 0 lightgray;
 }
