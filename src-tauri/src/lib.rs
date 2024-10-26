@@ -3,7 +3,7 @@
 use log::{info, error};
 use tauri::{Manager};
 use std::path::PathBuf;
-use std::process::{Command, Child};
+use std::process::{Command, Child, Stdio};
 use std::sync::Mutex;
 use std::fs::{/*metadata, */copy, create_dir_all};
 
@@ -120,7 +120,21 @@ pub fn run() {
 			real_server_path.push("java");
 			real_server_path.push(&java_name);
 			
-			if let Ok(child) = Command::new("java")
+			// Set up command
+			let mut jar_comm = Command::new("java");
+			// If on windows, mark command not to create a window
+			#[cfg(target_os = "windows")]
+			{
+				use std::os::windows::process::CommandExt;
+				const CREATE_NO_WINDOW: u32 = 0x08000000;
+				jar_comm.creation_flags(CREATE_NO_WINDOW);
+			}
+			// Don't use standard in or output (Help make sure no window is created)
+			// jar_comm
+			// 		.stdout(Stdio::null())
+			// 		.stderr(Stdio::null());
+			
+			if let Ok(child) =jar_comm
 					.arg("-jar")
 					.arg(real_server_path)
 					.spawn() {
